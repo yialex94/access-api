@@ -1,0 +1,32 @@
+﻿@model eMoneyApi.Models.Plan_Request
+@{
+    ViewBag.Title = "GetPlans";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Plans</h2>
+<div style="padding: 15px 15px 0px 15px; height:85%;">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Plan Id</th>
+                <th>Plan Name</th>
+                <th>Plan Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var plan in Model.resources)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@plan.id, "GetSpecificPlan")</td>
+                    <td>@plan.name</td>
+                    <td>@plan.type</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("Navigate", "Auth") + "'");">Make Different Calls</button>
+    </div>
+</div>

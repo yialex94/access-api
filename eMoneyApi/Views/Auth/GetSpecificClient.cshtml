@@ -1,0 +1,33 @@
+﻿@model eMoneyApi.Models.DetailedClient
+@{
+    ViewBag.Title = "GetSpecificClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="padding: 15px 15px 0px 15px; height:85%;">
+    <h2>@Model.client.firstName @Model.client.lastName</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Cell Phone</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.client.firstName</td>
+                <td>@Model.client.lastName</td>
+                <td>@Model.client.email</td>
+                <td>@Model.client.cellPhone</td>
+                <td>@Html.ActionLink("Edit", "EditClient", new { id = Model.id } )</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("Navigate", "Auth") + "'");">Make Different Calls</button>
+        <button type="button" class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("GetPlans", "Auth", new { id = Model.id }) + "'");">Get All Plans for @Model.client.firstName @Model.client.lastName</button>
+    </div>
+</div>

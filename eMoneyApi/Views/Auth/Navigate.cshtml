@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "API";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding: 15px 15px 0px 15px; height:85%;">
+    <div>
+        <h2 style="margin: 0 auto; width: 400px;">Let's Make Some API Calls</h2>
+        <br /><br />
+    </div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("GetClients", "Auth") + "'");">Get Clients</button>
+    </div>
+    <br />
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("GetPlans", "Auth") + "'");">Get Plans</button>
+    </div>
+</div>
+
